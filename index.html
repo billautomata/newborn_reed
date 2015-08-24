@@ -92,10 +92,9 @@
 					var scale = 60
 					obj = object
 
-					// object.translateX(30)
 
 					// object.rotateZ(Math.PI * 0.5)
-					// object.rotateX(Math.PI * -0.1)
+					// object.rotateX(Math.PI * 0.2)
 					object.rotateY(Math.PI)
 
 					object.scale.set( scale, scale, scale );
@@ -112,6 +111,7 @@
 				container.appendChild( renderer.domElement );
 
 				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+				document.addEventListener( 'touchmove', onDocumentMouseMove, false );
 
 				//
 
@@ -132,6 +132,15 @@
 			}
 
 			function onDocumentMouseMove( event ) {
+
+				event.preventDefault()
+
+				if(event.changedTouches !== undefined){
+					console.log(event)
+
+					event.clientX = event.changedTouches[0].clientX * 2
+					event.clientY = event.changedTouches[0].clientY * 2
+				}
 
 				mouseX = ( event.clientX - windowHalfX ) / 2;
 				mouseY = ( event.clientY - windowHalfY ) / 2;
