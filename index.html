@@ -64,12 +64,12 @@
 
 				scene = new THREE.Scene();
 
-				var ambient = new THREE.AmbientLight( 0xaaaaaa );
+				var ambient = new THREE.AmbientLight( 0xFFFFFF );
 				scene.add( ambient );
 
-				var directionalLight = new THREE.DirectionalLight( 0xffffff );
-				directionalLight.position.set( 0, 0, 1 ).normalize();
-				scene.add( directionalLight );
+				// var directionalLight = new THREE.DirectionalLight( 0xffffff );
+				// directionalLight.position.set( 0, 0, 1 ).normalize();
+				// scene.add( directionalLight );
 
 				// model
 
@@ -92,7 +92,7 @@
 					var scale = 60
 					obj = object
 
-
+					object.position.setZ(300)
 					// object.rotateZ(Math.PI * 0.5)
 					// object.rotateX(Math.PI * 0.2)
 					object.rotateY(Math.PI)
@@ -136,7 +136,7 @@
 				event.preventDefault()
 
 				if(event.changedTouches !== undefined){
-					console.log(event)
+					// console.log(event)
 
 					event.clientX = event.changedTouches[0].clientX * 2
 					event.clientY = event.changedTouches[0].clientY * 2
